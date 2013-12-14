@@ -1,0 +1,5 @@
+simplr_frontend_pages:
+    pattern:  /{slug}
+    defaults: { _controller: Cleentfaar\Simplr\Core\Controller\FrontendController::indexAction, slug: '/' }
+    requirements:
+        slug: ".+"

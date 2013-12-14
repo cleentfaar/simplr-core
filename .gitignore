@@ -1,0 +1,7 @@
+# IDE ignores
+/.idea
+
+# Composer ignores
+/composer.lock
+/composer.phar
+/vendor/

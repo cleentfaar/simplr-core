@@ -1,0 +1,34 @@
+{
+    "name": "cleentfaar/simplr-core",
+    "license": "MIT",
+    "type": "library",
+    "description": "The core library for the Simplr CMS",
+    "autoload": {
+        "psr-0": { "": "src/" }
+    },
+    "target-dir": "Cleentfaar/Simplr/Core",
+    "require": {
+        "php": ">=5.3.3",
+        "symfony/framework-bundle": "~2.3",
+        "symfony/twig-bundle": "~2.3",
+        "doctrine/orm": "~2.2,>=2.2.3",
+        "twig/twig": "~1.10"
+    },
+    "require-dev": {
+        "liip/functional-test-bundle": "dev-master"
+    },
+    "scripts": {
+        "post-install-cmd": [
+
+        ],
+        "post-update-cmd": [
+
+        ]
+    },
+    "config": {
+        "bin-dir": "bin"
+    },
+    "extra": {
+
+    }
+}
