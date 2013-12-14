@@ -16,12 +16,25 @@ use Symfony\Component\DependencyInjection\ContainerInterface;
 class Simplr
 {
     /**
+     * @var string
+     */
+    private $rootDir;
+
+    /**
      * @var \Symfony\Component\DependencyInjection\ContainerInterface
      */
     private $container;
 
-    public function __construct(ContainerInterface $container)
+    /**
+     * @param string $rootDir
+     * @param ContainerInterface $container
+     */
+    public function __construct($rootDir, ContainerInterface $container)
     {
+        if (!is_dir($rootDir)) {
+            throw new \Exception(sprintf("Given directory '%s' does not exist", $rootDir));
+        }
+        $this->rootDir = $rootDir;
         $this->container = $container;
     }
 
@@ -33,7 +46,7 @@ class Simplr
 
     public function getInstallationLockPath()
     {
-        $path = realpath($this->container->getParameter('kernel.root_dir') . '/NOT_INSTALLED.lock') ;
+        $path = realpath($this->rootDir . '/NOT_INSTALLED.lock') ;
         if ($path !== false) {
             return $path;
         }
