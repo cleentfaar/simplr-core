@@ -32,7 +32,7 @@ class SimplrInstallCommand extends ContainerAwareCommand
             'doctrine:database:drop' => array('--force' => true),
             'doctrine:database:create' => array(),
             'doctrine:schema:create' => array(),
-            'doctrine:fixtures:load' => array('--fixtures' => 'vendor/cleentfaar/simplr-core/src/Cleentfaar/Simplr/Core/DataFixtures'),
+            'doctrine:fixtures:load' => array(),
             'simplr:assets:install' => array(),
             'assetic:dump' => array(),
         ),
@@ -40,14 +40,14 @@ class SimplrInstallCommand extends ContainerAwareCommand
             'doctrine:database:drop' => array('--force' => true),
             'doctrine:database:create' => array(),
             'doctrine:schema:create' => array(),
-            'doctrine:fixtures:load' => array('--fixtures' => 'vendor/cleentfaar/simplr-core/src/Cleentfaar/Simplr/Core/DataFixtures'),
+            'doctrine:fixtures:load' => array(),
             'simplr:assets:install' => array(),
             'assetic:dump' => array(),
         ),
         'prod' => array(
             'doctrine:database:create' => array(),
             'doctrine:schema:update' => array(),
-            'doctrine:fixtures:load' => array('--fixtures' => 'vendor/cleentfaar/simplr-core/src/Cleentfaar/Simplr/Core/DataFixtures'),
+            'doctrine:fixtures:load' => array(),
             'simplr:assets:install' => array(),
             'assetic:dump' => array(),
         ),
@@ -171,7 +171,7 @@ EOT
                 $commandArguments['--env'] = $env;
                 $inputArray = array_merge(array('command' => $commandNamespace), $commandArguments);
                 $commandInput = new ArrayInput($inputArray);
-                $commandInput->setInteractive($input->isInteractive());
+                $commandInput->setInteractive(false);
                 $nullOutput = new NullOutput();
                 $progress->clear();
                 $output->write(sprintf(" Executing <comment>%s</comment>           ", $commandNamespace));
