@@ -44,10 +44,7 @@ class SimplrDiagnoseCommand extends ContainerAwareCommand
     }
 
     /**
-     * @param  InputInterface            $input
-     * @param  OutputInterface           $output
-     * @return int|null|void
-     * @throws \InvalidArgumentException
+     * {@inheritdoc}
      */
     protected function execute(InputInterface $input, OutputInterface $output)
     {
@@ -67,7 +64,7 @@ class SimplrDiagnoseCommand extends ContainerAwareCommand
         $report = $simplrDoctor->createReport($input, $output);
 
         if ($report === null) {
-            throw new \Exception(
+            throw new \RuntimeException(
                 "Simplr failed to create a report on your project's current status\n ".
                 "Are you sure you have installed all dependencies and read the installation documentation?\n ".
                 "You can run <comment>php composer update</comment> to make sure you do."
@@ -77,6 +74,12 @@ class SimplrDiagnoseCommand extends ContainerAwareCommand
         return $this->sendReportToOutput($report, $input, $output);
     }
 
+    /**
+     * @param DoctorReport $report
+     * @param InputInterface $input
+     * @param OutputInterface $output
+     * @return bool
+     */
     protected function sendReportToOutput(DoctorReport $report, InputInterface $input, OutputInterface $output)
     {
         $dateCreated = $report->getDateTimeCreated()->format('Y-m-d H:i:s');
@@ -106,6 +109,10 @@ class SimplrDiagnoseCommand extends ContainerAwareCommand
              */
             $output->writeln($page->getSlug().": ".$page->getTemplate());
         }
+
+        /**
+         * @todo Add more reports here
+         */
 
         return true;
     }
