@@ -45,12 +45,13 @@ class OptionManager
         if (!isset($this->options)) {
             $this->options = $this->fetchOptions();
         }
+
         return $this->options;
     }
 
     /**
      * @param $name
-     * @param null $default
+     * @param  null  $default
      * @return mixed
      */
     public function getOptionValue($name, $default = null)
@@ -59,6 +60,7 @@ class OptionManager
         if (isset($options[$name])) {
             return $options[$name]->getValue();
         }
+
         return $default;
     }
 
@@ -72,6 +74,7 @@ class OptionManager
         foreach ($result as $option) {
             $options[$option->getName()] = $option;
         }
+
         return $options;
     }
 }

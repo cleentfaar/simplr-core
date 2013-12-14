@@ -73,6 +73,7 @@ class PluginManager
             }
             $this->activePluginsFetched = true;
         }
+
         return $this->activePlugins;
     }
 
@@ -103,6 +104,7 @@ class PluginManager
         if (!is_array($configuration)) {
             return array();
         }
+
         return $configuration;
     }
 }

@@ -11,7 +11,6 @@
 
 namespace Cleentfaar\Simplr\Core\Controller;
 
-
 abstract class BaseInstallController extends BaseController
 {
 

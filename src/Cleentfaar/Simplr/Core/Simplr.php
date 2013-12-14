@@ -26,7 +26,7 @@ class Simplr
     private $container;
 
     /**
-     * @param string $rootDir
+     * @param string             $rootDir
      * @param ContainerInterface $container
      */
     public function __construct($rootDir, ContainerInterface $container)
@@ -41,6 +41,7 @@ class Simplr
     public function isInstalled()
     {
         $installationLockPath = $this->getInstallationLockPath();
+
         return $installationLockPath === null ? true : false;
     }
 
@@ -50,6 +51,7 @@ class Simplr
         if ($path !== false) {
             return $path;
         }
+
         return null;
     }
 }

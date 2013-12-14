@@ -56,6 +56,7 @@ class PageManager
             $route = new Route($entity->getSlug(), $defaults, $requirements, $options);
             $routeCollection->add('route_'.$entity->getId(), $route);
         }
+
         return $routeCollection;
     }
 
@@ -73,6 +74,7 @@ class PageManager
     private function fetchActivePages()
     {
         $pages = $this->em->getRepository('Simplr\Entity\Page')->findBy(array('active' => true));
+
         return $pages;
     }
 }

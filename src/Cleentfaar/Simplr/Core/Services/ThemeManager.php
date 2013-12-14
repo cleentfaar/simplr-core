@@ -47,7 +47,7 @@ class ThemeManager
     private $optionManager;
 
     /**
-     * @param string $pathToThemes
+     * @param string        $pathToThemes
      * @param OptionManager $optionManager
      */
     public function __construct($pathToThemes, OptionManager $optionManager)
@@ -82,6 +82,7 @@ class ThemeManager
         if (isset($options->{$option})) {
             return $options->{$option};
         }
+
         return $default;
     }
 
@@ -94,6 +95,7 @@ class ThemeManager
         if ($activeTheme !== null) {
             return $this->getPathToTheme($activeTheme);
         }
+
         return null;
     }
 
@@ -105,8 +107,10 @@ class ThemeManager
         $activeTheme = $this->getActiveTheme();
         if ($activeTheme !== null) {
             $path = $this->getPathToTheme($activeTheme);
+
             return $path . '/Resources/views';
         }
+
         return null;
     }
 
@@ -122,6 +126,7 @@ class ThemeManager
         if (!isset($this->activeThemeOptions)) {
             $this->activeThemeOptions = array();
         }
+
         return $this->activeThemeOptions;
     }
 
@@ -134,6 +139,7 @@ class ThemeManager
         if ($activeTheme !== null) {
             return $this->activeThemeConfig;
         }
+
         return array();
     }
 
@@ -165,6 +171,7 @@ class ThemeManager
             }
             $this->activeThemeFetched = true;
         }
+
         return $this->activeTheme;
     }
 
@@ -184,6 +191,7 @@ class ThemeManager
         if (!is_array($configuration)) {
             return array();
         }
+
         return $configuration;
     }
 

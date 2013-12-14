@@ -65,7 +65,7 @@ class Media
     /**
      * Set title
      *
-     * @param string $title
+     * @param  string $title
      * @return Media
      */
     public function setTitle($title)
@@ -88,7 +88,7 @@ class Media
     /**
      * Set path
      *
-     * @param string $path
+     * @param  string $path
      * @return Media
      */
     public function setPath($path)
@@ -111,7 +111,7 @@ class Media
     /**
      * Set options
      *
-     * @param array $options
+     * @param  array $options
      * @return Media
      */
     public function setOptions(array $options)

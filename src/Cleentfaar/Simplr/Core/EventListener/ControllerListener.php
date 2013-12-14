@@ -15,7 +15,6 @@ use Cleentfaar\Simplr\Core\Controller\BaseController;
 use Cleentfaar\Simplr\Core\Controller\BaseInstallController;
 use Cleentfaar\Simplr\Core\Exception\NotInstalledException;
 use Symfony\Component\DependencyInjection\ContainerInterface;
-use Symfony\Component\EventDispatcher\EventDispatcherInterface;
 use Symfony\Component\HttpKernel\Event\FilterControllerEvent;
 use Symfony\Component\HttpKernel\Event\GetResponseEvent;
 use Symfony\Component\Routing\Generator\UrlGenerator;

@@ -48,6 +48,7 @@ class ExceptionListener
         if ($exception instanceof NotInstalledException) {
             $response = new RedirectResponse($this->urlGenerator->generate('simplr_install_welcome'));
             $event->setResponse($response);
+
             return;
         }
     }

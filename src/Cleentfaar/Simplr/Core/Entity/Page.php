@@ -95,7 +95,7 @@ class Page
     /**
      * Set slug
      *
-     * @param string $slug
+     * @param  string $slug
      * @return Page
      */
     public function setSlug($slug)
@@ -118,7 +118,7 @@ class Page
     /**
      * Set title
      *
-     * @param string $title
+     * @param  string $title
      * @return Page
      */
     public function setTitle($title)
@@ -141,7 +141,7 @@ class Page
     /**
      * Set content
      *
-     * @param string $content
+     * @param  string $content
      * @return Page
      */
     public function setContent($content)
@@ -164,7 +164,7 @@ class Page
     /**
      * Set template
      *
-     * @param string $template
+     * @param  string $template
      * @return Page
      */
     public function setTemplate($template)
@@ -187,7 +187,7 @@ class Page
     /**
      * Set options
      *
-     * @param array $options
+     * @param  array $options
      * @return Page
      */
     public function setOptions(array $options)
@@ -210,7 +210,7 @@ class Page
     /**
      * Set active
      *
-     * @param bool $active
+     * @param  bool $active
      * @return Page
      */
     public function setActive($active)

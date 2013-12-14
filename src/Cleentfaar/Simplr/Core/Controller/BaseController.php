@@ -18,8 +18,8 @@ abstract class BaseController extends Controller
 {
 
     /**
-     * @param string|\Doctrine\ORM\EntityRepository|object $entity
-     * @param int $id
+     * @param  string|\Doctrine\ORM\EntityRepository|object $entity
+     * @param  int                                          $id
      * @return null|object
      */
     protected function findOr404($entity, $id)
@@ -32,8 +32,8 @@ abstract class BaseController extends Controller
      *
      * (inspired by [private bundle, sorry!])
      *
-     * @param string|\Doctrine\ORM\EntityRepository|object $entity
-     * @param array $criterias
+     * @param  string|\Doctrine\ORM\EntityRepository|object                  $entity
+     * @param  array                                                         $criterias
      * @throws \Symfony\Component\HttpKernel\Exception\NotFoundHttpException
      * @return null|object|array
      */
@@ -47,7 +47,7 @@ abstract class BaseController extends Controller
              */
             $repository = $this->getDoctrine()->getManager()->getRepository($entity);
         } else {
-            throw new \InvalidArgumentException("Must supply a classname (string)");
+            throw new \InvalidArgumentException("Must supply a classname (string) ");
         }
         if ($singleResult === true) {
             $result = $repository->findOneBy($criterias);

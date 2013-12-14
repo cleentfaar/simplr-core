@@ -62,8 +62,10 @@ class MenuBuilder
         /**
         $event = new MenuBuildingEvent($menu);
         $this->dispatcher->dispatch(CmsEvents::GET_BACKEND_SIDEBAR_MENU, $event);
+
         return $event->getMenu();
          */
+
         return $menu;
     }
 
@@ -191,6 +193,7 @@ class MenuBuilder
 
         $event = new GetMenuEvent($menu);
         $this->dispatcher->dispatch(CmsEvents::GET_BACKEND_SIDEBAR_MENU, $event);
+
         return $event->getMenu();
     }
 }

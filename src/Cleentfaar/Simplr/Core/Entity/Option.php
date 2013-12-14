@@ -58,7 +58,7 @@ class Option
     /**
      * Set name
      *
-     * @param string $name
+     * @param  string $name
      * @return Option
      */
     public function setName($name)
@@ -81,7 +81,7 @@ class Option
     /**
      * Set value
      *
-     * @param mixed $value
+     * @param  mixed  $value
      * @return Option
      */
     public function setValue($value)

@@ -62,6 +62,7 @@ class InstallCmsProcessor
     public function install()
     {
         $this->failedReasons = array();
+
         return true;
     }
 }
