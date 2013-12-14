@@ -6,7 +6,6 @@
     "autoload": {
         "psr-0": { "": "src/" }
     },
-    "target-dir": "Cleentfaar/Simplr/Core",
     "require": {
         "php": ">=5.3.3",
         "symfony/framework-bundle": "~2.3",
