@@ -12,25 +12,13 @@
 namespace Cleentfaar\Simplr\Core\Form;
 
 use Symfony\Component\DependencyInjection\ContainerInterface;
-use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\OptionsResolver\OptionsResolverInterface;
+use Symfony\Component\Translation\TranslatorInterface;
 
-class InstallCmsForm extends AbstractType
+class InstallCmsForm extends Form
 {
-    /**
-     * @var \Symfony\Component\HttpFoundation\Request
-     */
-    private $request;
-
-    /**
-     * @param ContainerInterface $container
-     */
-    public function __construct(ContainerInterface $container)
-    {
-        $this->request = $container->get('request');
-    }
-
     /**
      * @param FormBuilderInterface $builder
      * @param array                $options
@@ -44,9 +32,9 @@ class InstallCmsForm extends AbstractType
                     'text',
                     array(
                          'label' => 'form.label.site_title',
-                         'data' => 'My Beautiful Website',
                          'attr' => array(
-                             'placeholder' => 'My Beautiful Website',
+                            'help_text' => 'form.help.site_title',
+                             'placeholder' => $this->translator->trans('form.placeholder.site_title', array(), 'installation'),
                          ),
                     )
                 );
@@ -57,6 +45,7 @@ class InstallCmsForm extends AbstractType
                          'label' => 'form.label.site_url',
                          'data' => $this->request->getSchemeAndHttpHost(),
                          'attr' => array(
+                            'help_text' => 'form.help.site_url',
                              'placeholder' => $this->request->getSchemeAndHttpHost(),
                          ),
                     )
@@ -73,13 +62,16 @@ class InstallCmsForm extends AbstractType
                     'choice',
                     array(
                          'label' => 'form.label.database_driver',
-                         'empty_value' => 'form.choice.empty_value',
-                         'choices' => $choices
+                         'empty_value' => 'form.empty_choice.database_driver',
+                         'choices' => $choices,
+                         'attr' => array(
+                            'help_text' => 'form.help.database_driver',
+                         )
                     )
                 );
                 break;
         }
-        $builder->add(
+     /*   $builder->add(
             'button_submit',
             'button',
             array(
@@ -99,19 +91,7 @@ class InstallCmsForm extends AbstractType
             array(
                 'label' => 'form.button.back',
             )
-        );
-    }
-
-    /**
-     * @param OptionsResolverInterface $resolver
-     */
-    public function setDefaultOptions(OptionsResolverInterface $resolver)
-    {
-        $resolver->setDefaults(
-            array(
-                 'translation_domain' => 'installation'
-            )
-        );
+        );*/
     }
 
     /**
